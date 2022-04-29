@@ -8,6 +8,13 @@ spl_autoload_register(function ($classes){
     if(strncmp($prefixo,$classes,strlen($prefixo))){
         return;
     }
+    
+    $arquivo = $diretorio;
 
-    var_dump($classes);
+    $namespace = substr($classes,strlen($prefixo));
+    $namespace_arquivo = str_replace('\\',DIRECTORY_SEPARATOR,$namespace);
+
+    $arquivo = $diretorio.$namespace_arquivo.'.php';
+
+    //var_dump($namespace);
 });
